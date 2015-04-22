@@ -1,6 +1,6 @@
 ToDoCollection = require "../collections/ToDoCollection"
 
-class ToDoView extends Marionette.View
+class ToDoView extends Marionette.ItemView
   
   # list tag
   tagName: "li"
