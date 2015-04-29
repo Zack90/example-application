@@ -22,5 +22,23 @@ class LayoutView extends Marionette.LayoutView
     this.$(@el).html( @template(@model.toJSON()) )
     @setContet()
     return this
+    
+  setContent: ->
+    content = @model.get("content")
+    this.$(".todo-content").text(contet)
+    @input = this.$(".todo-input");
+    @input.bind("blur", @close);
+    @input.val(content);
+    
+  toggleDone: ->
+    @model.toggle()
+    
+  edit:
+    this.$(@el).addClass("editing")
+    @input.focus()
+    
+  close: =>
+    @model.save({ content: @input.val() })
+    $(@el).removeClass("editing")
       
 module.exports = LayoutView
