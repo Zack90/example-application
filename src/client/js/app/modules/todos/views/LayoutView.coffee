@@ -40,5 +40,14 @@ class LayoutView extends Marionette.LayoutView
   close: =>
     @model.save({ content: @input.val() })
     $(@el).removeClass("editing")
+    
+  updateOnEnter: (e) =>
+    @close() if e.keyCode is 13
+    
+  remove: ->
+    $(@el).remove()
+    
+  clear: () ->
+    @model.clear()
       
 module.exports = LayoutView
