@@ -33,7 +33,7 @@ class LayoutView extends Marionette.LayoutView
   toggleDone: ->
     @model.toggle()
     
-  edit:
+  edit: =>
     this.$(@el).addClass("editing")
     @input.focus()
     
